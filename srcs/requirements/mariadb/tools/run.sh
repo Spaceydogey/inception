@@ -1,12 +1,4 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    run.sh                                             :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/10 15:30:59 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/10 15:38:26 by hdelmas          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+#!/bin/sh
 
+envsubst < /db_create.sql | sponge /db_create.sql
+mysqld --bind-address "0.0.0.0" --init-file /db_create.sql #launch sql daemon mysqld_safe infinite loop ? 

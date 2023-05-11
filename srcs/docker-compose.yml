@@ -1,0 +1,30 @@
+version : "3"
+
+
+volumes :
+
+  maria-db-data :
+    name        : maria-db-volumes
+    driver      : local
+    driver_opts:
+      type     : none                                   #type = none means auto
+      device   : /home/hdelmas/data/maria-db-data       #location on the host
+      o        : bind                                   #o is for option
+
+
+services :
+
+  maria-db :
+    build     : requirements/mariadb
+    image     : maria-db
+    networks  : 
+        - inception-network
+    volumes   :
+        - maria-db-data:/var/lib/mysql
+    env_file  : .env
+    restart   : always
+
+
+networks :
+
+  inception-network :
