@@ -11,19 +11,36 @@ volumes :
       device   : /home/hdelmas/data/maria-db-data       #location on the host
       o        : bind                                   #o is for option
 
+  wordpress-data :
+    name        : wordpress-volumes
+    driver      : local
+    driver_opts:
+      type     : none 
+      device   : /home/hdelmas/data/wordpress-data       
+      o        : bind       
+
 
 services :
 
-  maria-db :
+  inc-maria-db :
     build     : requirements/mariadb
-    image     : maria-db
+    image     : inc-maria-db
     networks  : 
         - inception-network
     volumes   :
         - maria-db-data:/var/lib/mysql
     env_file  : .env
     restart   : always
-
+  
+  inc-nginx :
+    build     : requirements/nginx
+    image     : inc-nginx
+    networks  : 
+        - inception-network
+    volumes   :
+        - wordpress-data:/var/www/html
+    env_file  : .env
+    restart   : always
 
 networks :
 
