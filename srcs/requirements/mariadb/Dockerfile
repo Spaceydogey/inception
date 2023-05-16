@@ -6,7 +6,7 @@
 #    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 11:44:10 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/16 18:29:02 by hdelmas          ###   ########.fr        #
+#    Updated: 2023/05/16 19:31:41 by hdelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ COPY conf/maria.conf /etc/mysql/mariadb.conf.d/50-server.cnf
 RUN  chmod +x /db_create.sql
 RUN  chmod +x /run.sh
 
-CMD [ "/run.sh" ]
+ENTRYPOINT [ "/run.sh" ]
 
 
 

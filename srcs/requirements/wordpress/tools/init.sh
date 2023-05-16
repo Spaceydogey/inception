@@ -1,21 +1,9 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    init.sh                                            :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/15 16:01:37 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/16 19:13:34 by hdelmas          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 #!/bin/sh
 
-# wp core download --path=/var/www/html --allow-root
-# curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
-# chmod +x wp-cli.phar
-# mv wp-cli.phar /usr/local/bin/wp
+wp core download --path=/var/www/html --allow-root
+curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
+chmod +x wp-cli.phar
+mv wp-cli.phar /usr/local/bin/wp
 
 wp core download --path=/var/www/html --allow-root
 

@@ -6,7 +6,7 @@
 #    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 13:52:37 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/16 15:47:36 by hdelmas          ###   ########.fr        #
+#    Updated: 2023/05/16 19:31:56 by hdelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,4 +34,4 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/h
 # -out /etc/ssl/certs/nginx.cert: where to save the SSL certificate
 # -subj: subject of the certificate (country, location, organization, organization unit, common name)
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
