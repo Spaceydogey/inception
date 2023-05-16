@@ -6,7 +6,7 @@
 #    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 13:52:37 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/15 17:23:33 by hdelmas          ###   ########.fr        #
+#    Updated: 2023/05/16 19:13:39 by hdelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ RUN  rm -rf /var/lib/apt/lists/*
 #saves space
 
 RUN mkdir -p /run/php
+RUN mkdir -p /var/www/html
 
 RUN sed -i 's/listen = \/run\/php\/php7.3-fpm.sock/listen = 9000/g' /etc/php/7.3/fpm/pool.d/www.conf
 
@@ -31,8 +32,12 @@ RUN chmod +x wp-cli.phar
 RUN mv wp-cli.phar /usr/local/bin/wp
 
 #install wordpress and set the path
-RUN wp core download --path=/var/www/html --allow-root
 
+# RUN wp core download --path=/var/www/html --allow-root
 
-ENTRYPOINT [ "/run.sh" ]
+EXPOSE 9000
+EXPOSE 3306
+
+# ENTRYPOINT[ "/run.sh" ]
+CMD [ "tail", "-f" ]
 

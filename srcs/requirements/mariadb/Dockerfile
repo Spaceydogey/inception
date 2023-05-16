@@ -6,13 +6,13 @@
 #    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/10 11:44:10 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/15 17:26:58 by hdelmas          ###   ########.fr        #
+#    Updated: 2023/05/16 18:29:02 by hdelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:buster
 
-RUN  apt update && apt install -y mariadb-server moreutils gettext mariadb-client
+RUN  apt update && apt install -y mariadb-server moreutils gettext mariadb-client net-tools procps
 RUN  rm -rf /var/lib/apt/lists/* 
 #saves space
 
@@ -26,11 +26,12 @@ RUN chown -R mysql:mysql run/mysqld
 
 COPY tools/db_create.sql /
 COPY tools/run.sh /
+COPY conf/maria.conf /etc/mysql/mariadb.conf.d/50-server.cnf 
 
 RUN  chmod +x /db_create.sql
 RUN  chmod +x /run.sh
 
-ENTRYPOINT [ "/run.sh" ]
+CMD [ "/run.sh" ]
 
 
 

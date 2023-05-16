@@ -35,26 +35,30 @@ services :
   inc-nginx :
     build     : requirements/nginx
     image     : inc-nginx
-    port      :
+    ports      :
         - "443:443"
     networks  : 
         - inception-network
+    depends_on : 
+        - inc-wordpress
     volumes   :
         - wordpress-data:/var/www/html
     env_file  : .env
     restart   : always
 
-  inc-nginx :
-    build     : requirements/nginx
-    image     : inc-nginx
-    port      :
-        - "443:443"
+  inc-wordpress :
+    build     : requirements/wordpress
+    image     : inc-wordpress
     networks  : 
         - inception-network
     volumes   :
         - wordpress-data:/var/www/html
+    depends_on : 
+        - inc-maria-db
     env_file  : .env
     restart   : always
+
+
 networks :
 
   inception-network :
