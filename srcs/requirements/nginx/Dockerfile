@@ -21,7 +21,7 @@ EXPOSE 443
 RUN mkdir -p /run/nginx
 RUN mkdir -p /etc/nginx/ssl
 
-COPY conf/inc-nginx.conf /etc/nginx/
+# COPY conf/inc-nginx.conf /etc/nginx/
 COPY conf/inc-nginx.conf /etc/nginx/sites-enabled/default
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/hdelmas.key -out /etc/nginx/ssl/hdelmas.crt -subj "/CN=hdelmas"
