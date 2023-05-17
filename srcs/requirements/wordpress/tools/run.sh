@@ -3,7 +3,11 @@
 envsubst < /init.sh | sponge /init.sh
 
 echo "starting init"
-/init.sh
+
+if [ ! -f /var/www/html/wp-config.php ]; then
+	/init.sh
+fi
+
 echo "init done"
 
 php-fpm7.3 -F  

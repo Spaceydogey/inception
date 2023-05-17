@@ -6,7 +6,7 @@
 #    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 13:52:37 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/16 19:31:56 by hdelmas          ###   ########.fr        #
+#    Updated: 2023/05/17 10:56:46 by hdelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ RUN mkdir -p /run/nginx
 RUN mkdir -p /etc/nginx/ssl
 
 COPY conf/inc-nginx.conf /etc/nginx/
+COPY conf/inc-nginx.conf /etc/nginx/sites-enabled/default
 
 RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/hdelmas.key -out /etc/nginx/ssl/hdelmas.crt -subj "/CN=hdelmas"
 

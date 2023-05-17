@@ -6,7 +6,7 @@
 #    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/12 13:52:37 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/16 19:49:22 by hdelmas          ###   ########.fr        #
+#    Updated: 2023/05/17 11:18:53 by hdelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,19 +26,12 @@ COPY tools/init.sh /
 RUN  chmod +x /run.sh
 RUN  chmod +x /init.sh
 
-#install wp-cli -> cli client for wordpress
-# RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
-# RUN chmod +x wp-cli.phar
-# RUN mv wp-cli.phar /usr/local/bin/wp
 
-#install wordpress and set the path
 
-# RUN wp core download --path=/var/www/html --allow-root
 
 EXPOSE 9000
 EXPOSE 3306
 
 ENTRYPOINT [ "/run.sh" ]
-# CMD [ "/run.sh" ]
-# CMD [ "tail", "-f" ]
+
 

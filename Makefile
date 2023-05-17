@@ -6,7 +6,7 @@
 #    By: hdelmas <hdelmas@student.s19.be>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/15 17:27:03 by hdelmas           #+#    #+#              #
-#    Updated: 2023/05/16 20:10:01 by hdelmas          ###   ########.fr        #
+#    Updated: 2023/05/17 10:18:03 by hdelmas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,4 +29,4 @@ dep:
 	mkdir -p /home/hdelmas/data/wordpress-data
 	sudo cp srcs/requirements/tools/hosts /etc/hosts
 
-.PHONY: all re clean fclean docker dep
+.PHONY: all re clean fclean dep

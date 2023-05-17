@@ -1,10 +1,8 @@
 #!/bin/sh
-
-wp core download --path=/var/www/html --allow-root
+# install wp-cli -> cli client for wordpress
 curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar 
 chmod +x wp-cli.phar
 mv wp-cli.phar /usr/local/bin/wp
-
 wp core download --path=/var/www/html --allow-root
 
 #create the wp config file
@@ -16,4 +14,4 @@ wp core install --path=var/www/html --url=$WP_DOMAIN_NAME --title=$SITE_TITLE --
 
 
 #creates an user
-wp user create $WP_USER $WP_USER_EMAIL --allow-root --path=/var/www/html --role=author --user_pass=$WP_USER_PASSWORD
+wp user create $USER $USER_EMAIL --allow-root --path=/var/www/html --role=author --user_pass=$USER_PASSWORD
